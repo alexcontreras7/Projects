@@ -1,0 +1,41 @@
+module top (B3, B2, B1, C3, C2, C1, y);
+
+input B3, B2, B1, C3, C2, C1;
+
+output y;
+
+wire d1,d2;
+
+this T1 (d1, 1'b0, B1, C1);
+
+this T2 (d2, d1, B2, C2);
+
+this T3 (y, d2, B3, C3);
+
+endmodule
+
+ 
+
+module this (y, a, b, x );
+
+      output y;
+
+      input a;
+
+      input b;
+
+      input x;
+
+      reg y;
+
+      always @(*)
+
+            if(x == 0)
+
+                  y = a;
+
+            else
+
+                  y = b;
+
+      endmodule
